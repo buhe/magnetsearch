@@ -27,4 +27,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoView"
+        android:layout_below="@+id/section_label"
+        android:layout_toStartOf="@+id/search"
+        android:layout_alignRight="@+id/search"
+        android:layout_alignEnd="@+id/search"
+        android:layout_toLeftOf="@+id/searchInput"
+        android:layout_alignParentEnd="false" />
+
 </RelativeLayout>

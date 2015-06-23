@@ -63,11 +63,10 @@ public class MagnetAdapter extends android.widget.BaseAdapter {
         ViewHolder viewHolder = new ViewHolder();
         viewHolder.picture = (ImageView) layoutView
                 .findViewById(R.id.imageView);
-        viewHolder.number = (TextView) layoutView.findViewById(R.id.number);
+        viewHolder.number = (TextView) layoutView.findViewById(R.id.title);
 
-        viewHolder.name = (TextView) layoutView.findViewById(R.id.name);
-//        viewHolder.picture.setImageResource(Integer.parseInt(magnetList.get(
-//                position).get("imageView").toString()));
+        viewHolder.name = (TextView) layoutView.findViewById(R.id.url);
+        viewHolder.picture.setImageResource(R.drawable.ic_launcher);
         viewHolder.number.setText(Html.fromHtml(magnetList.get(position).getTitle()));
 //        Log.e("id", data.get(position).get("name").toString());
         viewHolder.name.setText(magnetList.get(position).getUrl());

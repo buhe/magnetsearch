@@ -141,13 +141,23 @@ public class ResultTableActivity extends ActionBarActivity implements AbsListVie
         HttpConnnectManager.instance().get(text,page,new MagnetBack() {
             @Override
             public void get(List<Magnet> magnets) {
-                adapter.addNewList(magnets);
-                ResultTableActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.notifyDataSetChanged();
-                    }
-                });
+                if(magnets.isEmpty()){
+                    ResultTableActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            pb_load_progress.setVisibility(View.GONE);
+                            tv_load_more.setText("(ÒωÓױ) 不要拉我了,没有了");
+                        }
+                    });
+                }else {
+                    adapter.addNewList(magnets);
+                    ResultTableActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                }
             }
         });
     }

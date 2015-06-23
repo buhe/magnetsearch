@@ -19,6 +19,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aoppp.magnetsearch.connector.HttpConnnectManager;
@@ -74,10 +75,18 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        if(position == 0) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        }else if (position == 1){
+            HelpFragment helpFragment = new HelpFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, helpFragment)
+                    .commit();
+        }
     }
 
     public void onSectionAttached(int number) {
@@ -85,9 +94,9 @@ public class MainActivity extends ActionBarActivity
             case 1:
                 mTitle = getString(R.string.title_section1);
                 break;
-//            case 2:
-//                mTitle = getString(R.string.title_section2);
-//                break;
+            case 2:
+                mTitle = getString(R.string.title_section2);
+                break;
 //            case 3:
 //                mTitle = getString(R.string.title_section3);
 //                break;
@@ -159,7 +168,11 @@ public class MainActivity extends ActionBarActivity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            ImageView logoView = (ImageView) rootView
+                    .findViewById(R.id.logoView);
+            logoView.setImageResource(R.drawable.ic_launcher);
             Button button = (Button) rootView.findViewById(R.id.search);
             button.setOnClickListener(new View.OnClickListener(){
                 @Override

@@ -3,7 +3,7 @@
 
     <string name="app_name">磁力猫</string>
     <string name="title_section1">磁力猫</string>
-    <string name="title_section2">Section 2</string>
+    <string name="title_section2">帮助</string>
     <string name="title_section3">Section 3</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,5 +11,10 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_result_table">ResultTableActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hello_blank_fragment">1.在首页输入关键字,点击搜索\n2.下拉列表查看更多\n3.点击一列就可以把磁力链复制到剪贴板啦</string>
+
+    <color name="blue">#0000ff</color>
+
+    <string name="title_activity_help">Help</string>
 
 </resources>
