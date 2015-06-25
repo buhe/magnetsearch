@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +26,8 @@ import com.aoppp.magnetsearch.domain.MagnetAdapter;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.umeng.analytics.MobclickAgent;
+
+import org.apache.http.protocol.HTTP;
 
 import java.util.Arrays;
 import java.util.List;
@@ -77,6 +80,18 @@ public class ResultTableActivity extends ActionBarActivity implements AbsListVie
                 Toast.makeText(getApplicationContext(),
                         "已经复制磁力链到剪贴板", Toast.LENGTH_LONG)
                         .show();
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_VIEW);
+//                sendIntent.putExtra(Intent.EXTRA_TEXT, itemValue.getUrl());
+
+                Uri magent_link = Uri.parse(itemValue.getUrl());
+                sendIntent.setData(magent_link);
+
+// Verify that the intent will resolve to an activity
+                if (sendIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(sendIntent);
+                }
 
             }
 
