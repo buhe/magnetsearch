@@ -9,5 +9,5 @@ Magnet search for Android
 
 
 ##TODO
-*  Support more service provider.
+*  Support more DHT service provider.
 *  More detail message for link.
